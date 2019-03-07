@@ -53,6 +53,7 @@ func DoPush(image v1.Image, opts *config.KanikoOptions) error {
 	destRefs := []name.Tag{}
 	for _, destination := range opts.Destinations {
 		destRef, err := name.NewTag(destination, name.WeakValidation)
+		fmt.Println("DestRef: ", destRef)
 		if err != nil {
 			return errors.Wrap(err, "getting tag for destination")
 		}
