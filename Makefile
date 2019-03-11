@@ -54,6 +54,6 @@ integration-test:
 
 .PHONY: images
 images:
-	docker build -t $(REGISTRY)/executor:latest -f deploy/Dockerfile .
-	docker build -t $(REGISTRY)/executor:debug -f deploy/Dockerfile_debug .
-	docker build -t $(REGISTRY)/warmer:latest -f deploy/Dockerfile_warmer .
+	docker build --build-arg https_proxy=$(https_proxy) -t $(REGISTRY)/executor:latest -f deploy/Dockerfile .
+	docker build --build-arg https_proxy=$(https_proxy) -t $(REGISTRY)/executor:debug -f deploy/Dockerfile_debug .
+	docker build --build-arg https_proxy=$(https_proxy) -t $(REGISTRY)/warmer:latest -f deploy/Dockerfile_warmer .
